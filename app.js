@@ -4,6 +4,7 @@ var app = require("express")(),
     io = require("socket.io")(server),
     ahttp = require("http"),
     longjohn = require("longjohn");
+var bodyParser=require('bodyParser')
 longjohn.async_trace_limit = -1;
 var request = require("request"),
     https = require("https"),
@@ -43,6 +44,7 @@ var request = require("request"),
         accKey: "l11l8D4FBj6XkyHh3NzeMINbdY+s19eUoxrRgvgQQgQ"
     }),
     cfenv = require("cfenv");
+    app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(cors()), app.use(express["static"](__dirname + "/public"));
 var appEnv = cfenv.getAppEnv();
 server.listen(appEnv.port, appEnv.bind, function() {
