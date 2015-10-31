@@ -142,10 +142,8 @@ setInterval(function() {
 
 
 app.get('/newsms',function(req,res){
-console.log('req');
-res.status(200);
+
 res.end();
-//res.end();
 
 
 });
