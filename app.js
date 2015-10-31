@@ -145,6 +145,14 @@ setInterval(function() {
 
 app.get('/newsms',function(req,res){
 
+res.writeHead(200, {'Content-Type': 'application/json'});
+res.end();
+
+
+});
+app.post('/newsms',function(req,res){
+
+res.writeHead(200, {'Content-Type': 'application/json'});
 res.end();
 
 
