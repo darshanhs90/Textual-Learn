@@ -144,14 +144,14 @@ setInterval(function() {
 app.get('/newsms',function(req,res){
 
 res.sendStatus(200);
-res.end();
+//res.end();
 
 
 });
 app.post('/newsms',function(req,res){
 
 res.sendStatus(200);
-res.end();
+//res.end();
 
 
 })
