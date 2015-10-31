@@ -148,10 +148,3 @@ res.status(200).end();
 
 
 });
-app.post('/newsms',function(req,res){
-//console.log(req);
-res.status(200).end();
-//res.end();
-
-
-})
