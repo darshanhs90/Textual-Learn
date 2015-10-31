@@ -13,7 +13,7 @@
             if ($scope.phNum.length < 10) {
                 alertify.error('Invalid Phone Number');
             } else {
-                $http.get('http://textuallearn.mybluemix.net/verifycode?number=' + $scope.phNum)
+                $http.get('http://textuallearnnew.mybluemix.net/verifycode?number=' + $scope.phNum)
                 .success(function(res) {
                     console.log(res);
                     if (res.status == 3)
@@ -37,7 +37,7 @@
                 console.log($scope.requestId);
 
                 console.log($scope.codeNum);
-                $http.get('http://textuallearn.mybluemix.net/verifycheck?request_id=' + $scope.requestId + '&code=' + $scope.codeNum)
+                $http.get('http://textuallearnnew.mybluemix.net/verifycheck?request_id=' + $scope.requestId + '&code=' + $scope.codeNum)
                 .success(function(res) {
                     console.log(res);
                     if (res.status != 0)
@@ -68,7 +68,7 @@
             else{
                 method=0;
             }
-            $http.get('http://textuallearn.mybluemix.net/subscribe?lang='+lang+'&method='+method)
+            $http.get('http://textuallearnnew.mybluemix.net/subscribe?lang='+lang+'&method='+method)
             .success(function(res) {
                 console.log(res);
                 swal("Good job!", "Your Subscription is Active", "success");
@@ -78,7 +78,7 @@
 
 
         $scope.stopNotifs = function() {
-            $http.get('http://textuallearn.mybluemix.net/stopNotifications')
+            $http.get('http://textuallearnnew.mybluemix.net/stopNotifications')
             .success(function(res) {
                 swal("Good job!", "Your Subscription is De activated", "error");
             });
