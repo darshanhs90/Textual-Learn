@@ -165,8 +165,8 @@ app.get('/subscribe', function(reqst, rspns) {
 });
 
 setInterval(function() {
-    console.log(verify);
-    console.log(subscribe);
+    console.log('verify is'+verify);
+    console.log('subscribe is '+subscribe);
     if (verify == true && subscribe==true) {
 
         request('http://randomword.setgetgo.com/get.php', function(error, response, body) {
