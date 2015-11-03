@@ -111,7 +111,7 @@ setInterval(function() {
                     request({
                         headers: {
                             "Content-Type": "application/json",
-                            Authorization: "LC apiKey=XULSIJ4hvHamC%2FpjbRIOIw%3D%3D"
+                            "Authorization": "LC apiKey=XULSIJ4hvHamC%2FpjbRIOIw%3D%3D"
                         },
                         uri: "https://lc-api.sdl.com/translate",
                         body: '{"text":"' + n + '", "from":"eng", "to":"' + lang + '"}',
