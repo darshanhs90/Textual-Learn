@@ -118,7 +118,7 @@ setInterval(function() {
                         method: "POST"
                     }, function(e, t, r) {
                         var n = r.substring(r.indexOf("translation") + 14, r.length - 2);
-                        textMain += "fra" == lang ? " French Translation is :" + n : " Spanish Translation is :" + n, console.log(textMain), 1 == getMsg ? https.get("https://rest.nexmo.com/sms/json?api_key=638c2b46&api_secret=60539549&from=12092664035&to=14697672278&text=" + textMain, function(e) {
+                        textMain += "fra" == lang ? " French Translation is :" + n : " Spanish Translation is :" + n, console.log(textMain), 1 == getMsg ? https.get("https://rest.nexmo.com/sms/json?api_key=638c2b46&api_secret=60539549&from=12092664035&to="+number+"&text=" + textMain, function(e) {
                             var t = "";
                             e.on("data", function(e) {
                                 t += e
