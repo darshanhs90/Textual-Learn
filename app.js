@@ -126,7 +126,7 @@ setInterval(function() {
                                 var e = JSON.parse(t);
                                 console.log(e)
                             })
-                        }) : https.get("https://api.nexmo.com/tts/xml?api_key=638c2b46&api_secret=60539549&to=14697672278&text=" + textMain, function(e) {
+                        }) : https.get("https://api.nexmo.com/tts/xml?api_key=638c2b46&api_secret=60539549&to="+number+"&text=" + textMain, function(e) {
                             e.on("end", function() {
                                 console.log(parsed)
                             })
