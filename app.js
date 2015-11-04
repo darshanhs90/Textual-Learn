@@ -95,7 +95,8 @@ app.get("/stopNotifications", function(e, t) {
     subscribe = !1, t.end()
 });
 app.get("/subscribe", function(e, t) {
-    lang = e.query.lang, getMsg = 1 == e.query.method ? !0 : !1, console.log(getMsg), subscribe = !0, console.log("subscribed"), t.end()
+    lang = e.query.lang, getMsg = 1 == e.query.method ? !0 : !1, console.log(getMsg), subscribe = !0, console.log("subscribed");
+     t.send(({'number':number}));t.end();
 });
 setInterval(function() {
     console.log('number'+number);
