@@ -11,37 +11,37 @@ https = require("https"),
 cors = require("cors"),
 Twitter = require("twitter"),
 client = new Twitter({
-    consumer_key: "LmNp3JwAQZnuBr4SQFaM7UZG3",
-    consumer_secret: "Xps6ziqIhZ0exAPoIAeyqj7myu7L78ZLHQDni67dzD9koJQTAD",
-    access_token_key: "151128859-F4Wk8KebqH4ZDwp8tMWY8PkoTQzfiEJrN1t2Knfc",
-    access_token_secret: "czQre16YZKoC4Csi18gGufu8PxF733aL5VnzbhurlGvHw"
+    consumer_key: "consumer_key",
+    consumer_secret: "consumer_secret",
+    access_token_key: "access_token_key",
+    access_token_secret: "access_token_secret"
 }),
 Twitter1 = require("node-tweet-stream"),
 tw = new Twitter1({
-    consumer_key: "LmNp3JwAQZnuBr4SQFaM7UZG3",
-    consumer_secret: "Xps6ziqIhZ0exAPoIAeyqj7myu7L78ZLHQDni67dzD9koJQTAD",
-    token: "151128859-F4Wk8KebqH4ZDwp8tMWY8PkoTQzfiEJrN1t2Knfc",
-    token_secret: "czQre16YZKoC4Csi18gGufu8PxF733aL5VnzbhurlGvHw"
+    consumer_key: "consumer_key",
+    consumer_secret: "consumer_secret",
+    token: "token",
+    token_secret: "token_secret"
 }),
 watson = require("watson-developer-cloud"),
 AlchemyAPI = require("alchemy-api"),
-alchemy = new AlchemyAPI("0554d03cab53ef907d02d27eaea5c2938b471ef1"),
-sendgrid = require("sendgrid")("hsdars", "Password90-"),
-accountSid = "AC07275e4294f1b0d42623c3ec9559911e",
-authToken = "650d049a9bd99323fb899ce4b9e84fcc",
+alchemy = new AlchemyAPI("id"),
+sendgrid = require("sendgrid")("id", "pwd"),
+accountSid = "id",
+authToken = "token",
 clientTwilio = require("twilio")(accountSid, authToken),
 Twit = require("twit"),
 sanFrancisco = ["-122.75", "36.8", "-121.75", "37.8"],
 T = new Twit({
-    consumer_key: "LmNp3JwAQZnuBr4SQFaM7UZG3",
-    consumer_secret: "Xps6ziqIhZ0exAPoIAeyqj7myu7L78ZLHQDni67dzD9koJQTAD",
-    access_token: "151128859-F4Wk8KebqH4ZDwp8tMWY8PkoTQzfiEJrN1t2Knfc",
-    access_token_secret: "czQre16YZKoC4Csi18gGufu8PxF733aL5VnzbhurlGvHw"
+    consumer_key: "consumer_key",
+    consumer_secret: "consumer_secret",
+    access_token: "access_token",
+    access_token_secret: "access_token_secret"
 }),
 OAuth = require("oauth").OAuth,
-oauth = new OAuth("https://api.twitter.com/oauth/request_token", "https://api.twitter.com/oauth/access_token", "LmNp3JwAQZnuBr4SQFaM7UZG3", "Xps6ziqIhZ0exAPoIAeyqj7myu7L78ZLHQDni67dzD9koJQTAD", "1.0", "oob", "HMAC-SHA1"),
+oauth = new OAuth("https://api.twitter.com/oauth/request_token", "https://api.twitter.com/oauth/access_token", "access_token", "access_token", "1.0", "oob", "HMAC-SHA1"),
 xoauth, Bing = require("node-bing-api")({
-    accKey: "l11l8D4FBj6XkyHh3NzeMINbdY+s19eUoxrRgvgQQgQ"
+    accKey: "accKey"
 }),
 cfenv = require("cfenv");
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -64,7 +64,7 @@ app.get("/verifycode", function(e, t) {
     number = e.query.number;
     console.log(' changing number');
     console.log(number);
-    https.get("https://api.nexmo.com/verify/json?api_key=638c2b46&api_secret=60539549&number=" + number + "&brand=Textual Learn", function(e) {
+    https.get("https://api.nexmo.com/verify/json?api_key=api_key&api_secret=api_secret&number=" + number + "&brand=Textual Learn", function(e) {
         var r = "";
         e.on("data", function(e) {
             r += e
@@ -78,7 +78,7 @@ app.get("/verifycode", function(e, t) {
 app.get("/verifycheck", function(e, t) {
     var r = e.query.code,
     n = e.query.request_id;
-    console.log(r), console.log(n), https.get("https://api.nexmo.com/verify/check/json?api_key=638c2b46&api_secret=60539549&request_id=" + n + "&code=" + r, function(e) {
+    console.log(r), console.log(n), https.get("https://api.nexmo.com/verify/check/json?api_key=api_key&api_secret=api_secret&request_id=" + n + "&code=" + r, function(e) {
         var r = "";
         e.on("data", function(e) {
             r += e
@@ -117,7 +117,7 @@ setInterval(function() {
                     request({
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": "LC apiKey=XULSIJ4hvHamC%2FpjbRIOIw%3D%3D"
+                            "Authorization": "Authorization"
                         },
                         uri: "https://lc-api.sdl.com/translate",
                         body: '{"text":"' + n + '", "from":"eng", "to":"' + lang + '"}',
@@ -125,7 +125,7 @@ setInterval(function() {
                     }, function(e, t, r) {
                         var n = r.substring(r.indexOf("translation") + 14, r.length - 2);
                         console.log('number'+number);
-                        textMain += "fra" == lang ? " French Translation is :" + n : " Spanish Translation is :" + n, console.log(textMain), 1 == getMsg ? https.get("https://rest.nexmo.com/sms/json?api_key=638c2b46&api_secret=60539549&from=12092664035&to="+number+"&text=" + textMain, function(e) {
+                        textMain += "fra" == lang ? " French Translation is :" + n : " Spanish Translation is :" + n, console.log(textMain), 1 == getMsg ? https.get("https://rest.nexmo.com/sms/json?api_key=api_key&api_secret=api_secret&from=num&to="+number+"&text=" + textMain, function(e) {
                             var t = "";
                             e.on("data", function(e) {
                                 t += e
@@ -133,7 +133,7 @@ setInterval(function() {
                                 var e = JSON.parse(t);
                                 console.log(e)
                             })
-                        }) : https.get("https://api.nexmo.com/tts/xml?api_key=638c2b46&api_secret=60539549&to="+number+"&text=" + textMain, function(e) {
+                        }) : https.get("https://api.nexmo.com/tts/xml?api_key=api_key&api_secret=api_secret&to="+number+"&text=" + textMain, function(e) {
                             e.on("end", function() {
                                 console.log(parsed)
                             })
